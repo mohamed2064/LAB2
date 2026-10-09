@@ -47,7 +47,13 @@ void Jump(){
     GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpheight);
 }
 
-void FixedUpdate(){
-    grounded = Physics2D.OverlapCircle(groundcheck.position, groundcheckradius, WhatIsGround);  
+void FixedUpdate()
+{
+    grounded = GetComponent<Collider2D>().IsTouchingLayers(WhatIsGround);
+}
+void OnDrawGizmosSelected()
+{
+    if (groundcheck != null)
+        Gizmos.DrawWireSphere(groundcheck.position, groundcheckradius);
 }
 }
