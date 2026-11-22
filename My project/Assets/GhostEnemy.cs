@@ -18,7 +18,7 @@ public class GhostEnemy : EnemyController
         {
             this.GetComponent<Rigidbody2D>().velocity = new Vector2(maxSpeed, this.GetComponent<Rigidbody2D>().velocity.y);
         }
-        else if (sr.flipX == false && transform.position.x < maxX)
+        else if (sr.flipX == false)
         {
             this.GetComponent<Rigidbody2D>().velocity = new Vector2(-maxSpeed, this.GetComponent<Rigidbody2D>().velocity.y);
         }
